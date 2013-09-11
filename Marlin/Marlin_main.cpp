@@ -825,8 +825,8 @@ static void homeaxis(int axis) {
 
 void deploy_z_probe() {
   feedrate = homing_feedrate[X_AXIS];
-  destination[X_AXIS] = 25;
-  destination[Y_AXIS] = 78;
+  destination[X_AXIS] = 0;
+  destination[Y_AXIS] = 50;
   destination[Z_AXIS] = 100;
   prepare_move_raw();
 
@@ -1149,7 +1149,7 @@ void process_commands()
       deploy_z_probe();
       calibrate_print_surface(z_probe_offset[Z_AXIS] +
 	(code_seen(axis_codes[Z_AXIS]) ? code_value() : 0.0));
-      retract_z_probe();
+      //retract_z_probe();
 
       feedrate = saved_feedrate;
       feedmultiply = saved_feedmultiply;
