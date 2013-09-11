@@ -56,6 +56,7 @@
 
 #ifndef MOTHERBOARD
 #define MOTHERBOARD 33
+#define MOTHERBOARD 63
 #endif
 
 // Define this to set a custom name for your generic Mendel,
