@@ -885,15 +885,16 @@
 
 #define X_STEP_PIN         15
 #define X_DIR_PIN          21
-#define X_STOP_PIN         18
+#define X_MAX_PIN          18
+#define X_MIN_PIN          -1
 
 #define Y_STEP_PIN         22
 #define Y_DIR_PIN          23
-#define Y_STOP_PIN         19
+#define Y_MAX_PIN          19
+#define Y_MIN_PIN          -1
 
 #define Z_STEP_PIN         3
 #define Z_DIR_PIN          2
-#define Z_STOP_PIN         20
 #define Z_MAX_PIN          20
 #define Z_MIN_PIN          28
 
