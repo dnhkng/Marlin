@@ -1702,6 +1702,16 @@ void process_commands()
 
       SERIAL_PROTOCOLLN("");
       break;
+    case 116: // M116 Print calibration results for manual frame adjustment.
+      for (int y = 3; y >= -3; y--) {
+        
+        for (int x = -3; x <= 3; x++) {
+          SERIAL_PROTOCOL_F(bed_level[x+3][y+3], 3);
+          SERIAL_PROTOCOLPGM(" ");
+        }
+      SERIAL_ECHOLN("");
+      }
+      break;  
     case 120: // M120
       enable_endstops(false) ;
       break;
