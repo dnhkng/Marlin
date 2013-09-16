@@ -827,7 +827,7 @@ void deploy_z_probe() {
   feedrate = homing_feedrate[X_AXIS];
   destination[X_AXIS] = 0;
   destination[Y_AXIS] = 50;
-  destination[Z_AXIS] = 100;
+  destination[Z_AXIS] = 20;
   prepare_move_raw();
 
   feedrate = homing_feedrate[X_AXIS]/10;
@@ -841,18 +841,18 @@ void retract_z_probe() {
   destination[Z_AXIS] = current_position[Z_AXIS] + 20;
   prepare_move_raw();
 
-  destination[X_AXIS] = -55;
-  destination[Y_AXIS] = 63;
-  destination[Z_AXIS] = 30;
+  destination[X_AXIS] = 0; //-55
+  destination[Y_AXIS] = 0;  //63
+  destination[Z_AXIS] = 100;  //30
   prepare_move_raw();
 
   // Move the nozzle below the print surface to push the probe up.
-  feedrate = homing_feedrate[Z_AXIS]/10;
-  destination[Z_AXIS] = current_position[Z_AXIS] - 20;
-  prepare_move_raw();
+  //feedrate = homing_feedrate[Z_AXIS]/10;
+  //destination[Z_AXIS] = current_position[Z_AXIS] - 20;
+  //prepare_move_raw();
 
   feedrate = homing_feedrate[Z_AXIS];
-  destination[Z_AXIS] = current_position[Z_AXIS] + 30;
+  //destination[Z_AXIS] = current_position[Z_AXIS] + 30;
   prepare_move_raw();
   st_synchronize();
 }
@@ -866,7 +866,7 @@ float z_probe() {
   float start_z = current_position[Z_AXIS];
   long start_steps = st_get_position(Z_AXIS);
 
-  feedrate = homing_feedrate[Z_AXIS]/10;
+  feedrate = homing_feedrate[Z_AXIS]/6; //10
   destination[Z_AXIS] = -20;
   prepare_move_raw();
   st_synchronize();
@@ -1149,7 +1149,7 @@ void process_commands()
       deploy_z_probe();
       calibrate_print_surface(z_probe_offset[Z_AXIS] +
 	(code_seen(axis_codes[Z_AXIS]) ? code_value() : 0.0));
-      //retract_z_probe();
+      retract_z_probe();
 
       feedrate = saved_feedrate;
       feedmultiply = saved_feedmultiply;
