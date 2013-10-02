@@ -896,7 +896,7 @@
 #define Z_STEP_PIN         3
 #define Z_DIR_PIN          2
 #define Z_MAX_PIN          20
-#define Z_MIN_PIN          28
+#define Z_MIN_PIN          26
 
 #define E0_STEP_PIN         1
 #define E0_DIR_PIN          0
@@ -935,7 +935,7 @@
 #define HEATER_BED_PIN     12 // (bed)
 #define X_ENABLE_PIN       14
 #define Y_ENABLE_PIN       14
-#define Z_ENABLE_PIN       26
+#define Z_ENABLE_PIN       14
 #define E0_ENABLE_PIN       14
 
 #else
